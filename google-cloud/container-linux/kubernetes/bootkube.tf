@@ -2,6 +2,7 @@
 module "bootkube" {
   source = "git::https://github.com/poseidon/bootkube-terraform.git?ref=v0.6.1"
 
+  cloud_provider                = "gce"
   cluster_name                  = "${var.cluster_name}"
   api_servers                   = ["${format("%s.%s", var.cluster_name, var.dns_zone)}"]
   etcd_servers                  = ["http://127.0.0.1:2379"]
